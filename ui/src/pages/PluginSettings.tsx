@@ -256,16 +256,16 @@ export function PluginSettings() {
                 />
               ) : environmentDrivers.length > 0 ? (
                 <div className="rounded-md border border-border/60 bg-muted/20 px-4 py-3 text-sm">
-                  <p className="font-medium text-foreground">{t("pages.pluginSettings.configureFromEnvironments", { defaultValue: "Configure this plugin from Company Environments." })}</p>
+                  <p className="font-medium text-foreground">{t("pages.pluginSettings.configureFromInstanceEnvironments", { defaultValue: "Configure this plugin from Instance Settings → Environments." })}</p>
                   <p className="mt-1 text-muted-foreground">
-                    {t("pages.pluginSettings.environmentDriverDescription", {
+                    {t("pages.pluginSettings.instanceEnvironmentDriverDescription", {
                       driverLabel: driverLabel || t("pages.pluginSettings.environmentDriverFallback", { defaultValue: "This plugin" }),
-                      defaultValue: "{{driverLabel}} registers environment runtime settings there so credentials stay company-scoped instead of instance-global.",
+                      defaultValue: "{{driverLabel}} registers environment runtime settings there so the execution target stays instance-scoped while secret bindings still resolve through the selected company context.",
                     })}
                   </p>
                   <div className="mt-3">
-                    <Link to="/company/settings/environments">
-                      <Button variant="outline" size="sm">{t("pages.pluginSettings.openCompanyEnvironments", { defaultValue: "Open Company Environments" })}</Button>
+                    <Link to="/company/settings/instance/environments">
+                      <Button variant="outline" size="sm">{t("pages.pluginSettings.openEnvironments", { defaultValue: "Open Environments" })}</Button>
                     </Link>
                   </div>
                 </div>

@@ -55,6 +55,9 @@ function getKindLabel(): Record<IssueRecoveryActionKind, string> {
     workspace_validation: t("components.issueRecoveryActionCard.kindLabelWorkspaceValidation", {
       defaultValue: "Workspace Validation",
     }),
+    configuration_validation: t("components.issueRecoveryActionCard.kindLabelConfigurationValidation", {
+      defaultValue: "Configuration Validation",
+    }),
     active_run_watchdog: t("components.issueRecoveryActionCard.kindLabelActiveRunWatchdog", {
       defaultValue: "Active Watchdog",
     }),
@@ -76,6 +79,10 @@ function getKindHeadline(): Record<IssueRecoveryActionKind, string> {
     workspace_validation: t("components.issueRecoveryActionCard.kindHeadlineWorkspaceValidation", {
       defaultValue:
         "Paperclip stopped this run because the task's git workspace could not be validated.",
+    }),
+    configuration_validation: t("components.issueRecoveryActionCard.kindHeadlineConfigurationValidation", {
+      defaultValue:
+        "Paperclip stopped before dispatching this run because required secret/env bindings are missing.",
     }),
     active_run_watchdog: t("components.issueRecoveryActionCard.kindHeadlineActiveRunWatchdog", {
       defaultValue:
@@ -107,7 +114,6 @@ function getStateLabel(): Record<RecoveryCardCardState, string> {
     }),
   };
 }
-
 const STATE_TONE: Record<RecoveryCardCardState, {
   containerClass: string;
   iconWrapClass: string;

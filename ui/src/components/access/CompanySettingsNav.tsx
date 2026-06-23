@@ -8,11 +8,6 @@ function getItems() {
   return [
     { value: "general", label: t("components.companySettingsNav.general", { defaultValue: "General" }), href: "/company/settings" },
     {
-      value: "environments",
-      label: t("components.companySettingsNav.environments", { defaultValue: "Environments" }),
-      href: "/company/settings/environments",
-    },
-    {
       value: "cloud-upstream",
       label: t("components.companySettingsNav.cloudUpstream", { defaultValue: "Cloud upstream" }),
       href: "/company/settings/cloud-upstream",
@@ -29,6 +24,11 @@ function getItems() {
       value: "instance-general",
       label: t("components.companySettingsNav.instanceGeneral", { defaultValue: "Instance general" }),
       href: `${INSTANCE_SETTINGS_PATH_PREFIX}/general`,
+    },
+    {
+      value: "instance-environments",
+      label: t("components.companySettingsNav.instanceEnvironments", { defaultValue: "Instance environments" }),
+      href: `${INSTANCE_SETTINGS_PATH_PREFIX}/environments`,
     },
     {
       value: "instance-access",
@@ -69,6 +69,10 @@ export function getCompanySettingsTab(pathname: string): CompanySettingsTab {
     return "instance-access";
   }
 
+  if (pathname.includes(`${INSTANCE_SETTINGS_PATH_PREFIX}/environments`)) {
+    return "instance-environments";
+  }
+
   if (pathname.includes(`${INSTANCE_SETTINGS_PATH_PREFIX}/heartbeats`)) {
     return "instance-heartbeats";
   }
@@ -90,7 +94,7 @@ export function getCompanySettingsTab(pathname: string): CompanySettingsTab {
   }
 
   if (pathname.includes("/company/settings/environments")) {
-    return "environments";
+    return "instance-environments";
   }
 
   if (pathname.includes("/company/settings/cloud-upstream")) {

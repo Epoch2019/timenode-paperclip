@@ -123,14 +123,6 @@ export function CompanySettingsSidebar() {
             icon={SlidersHorizontal}
             end
           />
-          <SidebarNavItem
-            to="/company/settings/environments"
-            label={t("components.companySettingsSidebar.environments", {
-              defaultValue: "Environments",
-            })}
-            icon={MonitorCog}
-            end
-          />
           {showCloudUpstream ? (
             <SidebarNavItem
               to="/company/settings/cloud-upstream"
@@ -198,6 +190,14 @@ export function CompanySettingsSidebar() {
               defaultValue: "General",
             })}
             icon={SlidersHorizontal}
+            end
+          />
+          <SidebarNavItem
+            to={`${INSTANCE_SETTINGS_PATH_PREFIX}/environments`}
+            label={t("components.companySettingsSidebar.environments", {
+              defaultValue: "Environments",
+            })}
+            icon={MonitorCog}
             end
           />
           <SidebarNavItem

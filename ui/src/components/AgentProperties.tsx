@@ -46,6 +46,13 @@ export function AgentProperties({ agent, runtimeState }: AgentPropertiesProps) {
         <PropertyRow label={t("components.agentProperties.statusLabel", { defaultValue: "Status" })}>
           <AgentStatusBadge status={agent.status} />
         </PropertyRow>
+        {lastErrorIsActive && agent.errorReason && (
+          <PropertyRow label={t("components.agentProperties.errorReasonLabel", { defaultValue: "Error reason" })}>
+            <span className="text-xs text-red-600 dark:text-red-400 break-words min-w-0">
+              {agent.errorReason}
+            </span>
+          </PropertyRow>
+        )}
         <PropertyRow label={t("components.agentProperties.roleLabel", { defaultValue: "Role" })}>
           <span className="text-sm">{roleLabels[agent.role] ?? agent.role}</span>
         </PropertyRow>
